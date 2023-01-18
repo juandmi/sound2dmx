@@ -5,37 +5,35 @@ import sys, ftd2xx as ftd2xx
 OP = 0x01            # Bit mask for output D0
 dmx_data = [0xfe if i in [1,2,3] else 0x00 for i in range(512)]
 
+# define variable for DMX stop bit
+dmx_stop = 0x00
+
 # print status function
 def print_status(function, status):
     if status == 0:  # FT_OK
         print(f'{function} OK')
     else:
         print(f'{function} failed')
+        print(f'{function} error code = {status}')
         exit()
 
 d = ftd2xx.open(0)    # Open first FTDI device
 print(d.getDeviceInfo())
 
 # Set the baud rate
-d.setBaudRate(250000)
-status = ftd2xx.ft_write(d, (OP, 0))
-print_status("FT_SetBaudRate",status)
+print(d.setBaudRate(250000))
 
 # Set the data characteristics
-status = ftd2xx.FT_SetDataCharacteristics(ft_handle, 8, 0, 0)
-print_status("FT_SetDataCharacteristics",status)
+print(d.setDataCharacteristics(8, 0, 0))
 
 # Set the timeout
-status = ftd2xx.FT_SetTimeouts(ft_handle, 5000, 1000);
-print_status("FT_SetTimeouts",status)
+print(d.setTimeouts(5000, 1000))
 
 # Set the flow control
-status = ftd2xx.FT_SetFlowControl(ft_handle, 0x0000, 0x11, 0x13)
-print_status("FT_SetFlowControl",status)
+print(d.setFlowControl(0, 0, 0))
 
 # Get the status of the device
-status = ftd2xx.FT_GetStatus(ft_handle, ctypes.byref(lpdwAmountInRxQueue), ctypes.byref(lpdwAmountInTxQueue), ctypes.byref(lpdwEventStatus))
-print_status("FT_GetStatus",status)
+print(d.getStatus())
 
 t_end = time.time() + 1
 while time.time() < t_end:
@@ -61,10 +59,8 @@ while time.time() < t_end:
     print(f'{bytes_written.value} bytes written')
     time.sleep(0.024)  # delay 24ms
 
+# print dmx_data
 print(dmx_data)
-# for val in dmx_data:
-#    print(val)
 
 # Close the device
-ftd2xx.FT_Close(ft_handle)
-print("Device closed")
+print(d.close())

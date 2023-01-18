@@ -29,26 +29,27 @@ ftd2xx = ctypes.WinDLL("ftd2xx.dll")
 status = ftd2xx.FT_Open(0, ctypes.byref(ft_handle))
 print_status("FT_Open",status)
 
-# Set the baud rate to 0x1 = Asynchronous Bit Bang
-# status = ftd2xx.FT_SetBitmode(ft_handle, 0, 0x01)
-# print_status("FT_SetBitmode",status)
-
 # Set chip modes
 status = ftd2xx.FT_SetBaudRate(ft_handle, 250000)
 print_status("FT_SetBaudRate",status)
 
-
 # Set the data characteristics
-status = ftd2xx.FT_SetDataCharacteristics(ft_handle, 8, 0, 0)
+status = ftd2xx.FT_SetDataCharacteristics(ft_handle, 8, 2, 0)
 print_status("FT_SetDataCharacteristics",status)
 
 # Set the timeout
-status = ftd2xx.FT_SetTimeouts(ft_handle, 5000, 1000);
+status = ftd2xx.FT_SetTimeouts(ft_handle, 500, 0);
 print_status("FT_SetTimeouts",status)
 
 # Set the flow control
-status = ftd2xx.FT_SetFlowControl(ft_handle, 0x0000, 0x11, 0x13)
+status = ftd2xx.FT_SetFlowControl(ft_handle, 0, 0, 0)
 print_status("FT_SetFlowControl",status)
+
+# Get the latency timer
+latency = ctypes.c_ubyte()
+status = ftd2xx.FT_GetLatencyTimer(ft_handle, ctypes.byref(latency))
+print_status("FT_GetLatencyTimer",status)
+print(f'Latency timer: {latency.value}')
 
 # Get the status of the device
 status = ftd2xx.FT_GetStatus(ft_handle, ctypes.byref(lpdwAmountInRxQueue), ctypes.byref(lpdwAmountInTxQueue), ctypes.byref(lpdwEventStatus))
@@ -78,7 +79,7 @@ while time.time() < t_end:
     print(f'{bytes_written.value} bytes written')
     time.sleep(0.024)  # delay 24ms
 
-print(dmx_data)
+# print(dmx_data)
 # for val in dmx_data:
 #    print(val)
 
