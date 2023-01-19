@@ -24,7 +24,7 @@ print(d.getDeviceInfo())
 print(d.setBaudRate(250000))
 
 # Set the data characteristics
-print(d.setDataCharacteristics(8, 0, 0))
+print(d.setDataCharacteristics(8, 2, 0))
 
 # Set the timeout
 print(d.setTimeouts(5000, 1000))
