@@ -79,9 +79,9 @@ while time.time() < t_end:
     print(f'{bytes_written.value} bytes written')
     time.sleep(0.024)  # delay 24ms
 
-# print(dmx_data)
-# for val in dmx_data:
-#    print(val)
+print(dmx_data)
+for val in dmx_data:
+    print(val)
 
 # Close the device
 ftd2xx.FT_Close(ft_handle)
