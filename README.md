@@ -63,5 +63,6 @@ https://info.kmtronic.com/control-dmx512-devices-via-raspberry-pi.html
 https://pypi.org/project/ftd2xx/
 https://github.com/snmishra/ftd2xx 
 
-
+#### Audio motion analyzer
+https://github.com/hvianna/audioMotion-analyzer
 
