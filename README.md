@@ -17,7 +17,7 @@ https://www.deejayladen.de/de/involight-crystal-led-ball-53/pd/60632
 * Ch3: green <br>
 * Ch4: blue <br>
 * Ch5: rotation <br>
-  0-127: angle position, rotary speed , 143-157: faster, , 188-202: insane, 203-217: warp 9 <br>
+  0-127: angle position <br>
   128-255: rotation speed <br>
   128-142: very slow <br>
   143-157: still slow <br>
