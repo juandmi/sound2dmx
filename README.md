@@ -40,3 +40,10 @@ https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.
 # Usage
 ## Test the DMX interface by sending 
 python .\check-dmx-interface-ftd2xx.py
+
+
+## Run the ligth show
+WIP
+
+## Configure parameters
+WIP
