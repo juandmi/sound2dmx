@@ -2,8 +2,7 @@ import time
 import sys, ftd2xx as ftd2xx
 
 # Variables
-#dmx_data = [0xff if i in [1,2,3] else 0x00 for i in range(512)]
-dmx_data = [0x00,0xFF,0xFF,0xFF,0x00]
+dmx_data = [0x00,0xFF,0xFF,0xFF,0x80]
 dmx_data = bytes(dmx_data)
 
 d = ftd2xx.open(0)    # Open first FTDI device
@@ -39,7 +38,7 @@ print("time after breaks off=", (seconds - start)*1000)
 
 i = 0
 # Now continously send the slot 1 to 512 DMX data 
-t_end = time.time() + 0.5
+t_end = time.time() + 1
 while time.time() < t_end:
     # Write the start bit
     d.write(b"\x00")
