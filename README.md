@@ -47,3 +47,21 @@ WIP
 
 ## Configure parameters
 WIP
+
+
+# Helpful Links
+#### Decimal-hexadecimal-binary conversion table: 
+https://kb.iu.edu/d/afdl
+
+#### DMX explained
+https://community.element14.com/technologies/open-source-hardware/b/blog/posts/dmx-explained-dmx512-and-rs-485-protocol-detail-for-lighting-applications
+
+#### KMTronic programming example
+https://info.kmtronic.com/control-dmx512-devices-via-raspberry-pi.html
+
+#### A simple python wrapper around the D2XX DLL from FTDI using ctypes
+https://pypi.org/project/ftd2xx/
+https://github.com/snmishra/ftd2xx 
+
+
+
