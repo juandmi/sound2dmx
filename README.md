@@ -22,3 +22,4 @@ https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.
 
 # Usage
 ## 
+python .\check-dmx-interface-ftd2xx.py
