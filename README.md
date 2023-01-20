@@ -17,10 +17,10 @@ https://www.deejayladen.de/de/involight-crystal-led-ball-53/pd/60632
 * Ch3: green <br>
 * Ch4: blue <br>
 * Ch5: rotation <br>
-  0-127: angle position <br>
-  128-255: rotation speed <br>
-  128-142: very slow <br>
-  143-157: still slow <br>
+  -0-127: angle position <br>
+  -128-255: rotation speed <br>
+    -128-142: very slow <br>
+    -143-157: still slow <br>
   158-172: normal <br>
   173-187: fast <br>
   188-202: 70 swings per minute <br>
