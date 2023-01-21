@@ -49,7 +49,7 @@ WIP
 WIP
 
 
-# Helpful Links
+# Helpful Links 
 #### Decimal-hexadecimal-binary conversion table: 
 https://kb.iu.edu/d/afdl
 
@@ -59,10 +59,17 @@ https://community.element14.com/technologies/open-source-hardware/b/blog/posts/d
 #### KMTronic programming example
 https://info.kmtronic.com/control-dmx512-devices-via-raspberry-pi.html
 
-#### A simple python wrapper around the D2XX DLL from FTDI using ctypes
+#### Python wrappers around the D2XX DLL from FTDI
 https://pypi.org/project/ftd2xx/
 https://github.com/snmishra/ftd2xx 
+https://pypi.org/project/PyDMX/
+https://pypi.org/project/PyDMX-Drivers-FTDI/ 
 
 #### Audio motion analyzer
 https://github.com/hvianna/audioMotion-analyzer
 
+#### Open Sound Control server and client implementations in pure python (3.5+)
+https://pypi.org/project/python-osc/
+
+#### Open Sound Control library for JavaScript applications
+https://www.npmjs.com/package/osc-js
