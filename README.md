@@ -73,3 +73,7 @@ https://pypi.org/project/python-osc/
 
 #### Open Sound Control library for JavaScript applications
 https://www.npmjs.com/package/osc-js
+
+#### DMX controller library for node.js
+https://github.com/node-dmx
+
