@@ -1,18 +1,25 @@
-from pythonosc import dispatcher
-from pythonosc import osc_server
+from pythonosc.dispatcher import Dispatcher
+from pythonosc.osc_server import BlockingOSCUDPServer
+import socket   
+hostname=socket.gethostname()   
+IPAddr=socket.gethostbyname(hostname)   
+print("Your Computer Name is:"+hostname)   
+print("Your Computer IP Address is:"+IPAddr)   
 
-# define a message-handler function for the server to call.
-def audio_handler(unused_addr, args, data):
-    global dmx_data
-    dmx_data = data
-    print("audio data:", data)
+def print_handler(address, *args):
+    print(f"{address}: {args}")
 
-# create the dispatcher
-disp = dispatcher.Dispatcher()
 
-# add the function to the dispatcher to handle audio OSC messages
-disp.map("/audio", audio_handler)
+def default_handler(address, *args):
+    print(f"DEFAULT {address}: {args}")
 
-# start the OSC server
-server = osc_server.ThreadingOSCUDPServer(("localhost", 8080), disp)
-server.serve_forever()
+
+dispatcher = Dispatcher()
+dispatcher.map("/audio*", print_handler)
+dispatcher.set_default_handler(default_handler)
+
+ip = IPAddr
+port = 8080
+
+server = BlockingOSCUDPServer((ip, port), dispatcher)
+server.serve_forever()  # Blocks forever
