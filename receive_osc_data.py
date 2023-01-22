@@ -14,5 +14,5 @@ disp = dispatcher.Dispatcher()
 disp.map("/audio", audio_handler)
 
 # start the OSC server
-server = osc_server.ThreadingOSCUDPServer(("localhost", 1234), disp)
+server = osc_server.ThreadingOSCUDPServer(("localhost", 8080), disp)
 server.serve_forever()

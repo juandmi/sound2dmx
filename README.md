@@ -36,18 +36,15 @@ https://ftdichip.com/drivers/d2xx-drivers/
 ## D2XX Programmer's Guide
 https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.pdf
 
-
 # Usage
-## Test the DMX interface by sending 
+## Test the interface by sending DMX data
 python .\check-dmx-interface-ftd2xx.py
-
 
 ## Run the ligth show
 WIP
 
 ## Configure parameters
 WIP
-
 
 # Helpful Links 
 #### Decimal-hexadecimal-binary conversion table: 
