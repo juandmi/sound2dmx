@@ -41,12 +41,12 @@ https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.
 python .\check-dmx-interface-ftd2xx.py
 
 ## Test OSC sending and receiving part
-npm install socket.io
-npm install osc-js
+npm install socket.io<br>
+npm install osc-js<br>
 
-Run the the receiving and sending scripts in separate consoles: 
-python .\receive_osc_data.py
-node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8>
+Run the the receiving and sending scripts in separate consoles: <br>
+python .\receive_osc_data.py<br>
+node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8><br>
 
 Result: 
 ```
