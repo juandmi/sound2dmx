@@ -1,10 +1,11 @@
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import BlockingOSCUDPServer
-import socket   
-hostname=socket.gethostname()   
-IPAddr=socket.gethostbyname(hostname)   
-print("Your Computer Name is:"+hostname)   
-print("Your Computer IP Address is:"+IPAddr)   
+
+import socket
+hostname=socket.gethostname()
+IPAddr=socket.gethostbyname(hostname)
+print("Your Computer Name is:"+hostname)
+print("Your Computer IP Address is:"+IPAddr)
 
 def print_handler(address, *args):
     print(f"{address}: {args}")

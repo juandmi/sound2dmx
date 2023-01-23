@@ -40,13 +40,21 @@ https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.
 ## Test the interface by sending DMX data
 python .\check-dmx-interface-ftd2xx.py
 
-## Test OSC sending and receiving
+## Test OSC sending and receiving part
 npm install socket.io
 npm install osc-js
 
 Run the the receiving and sending scripts in separate consoles: 
 python .\receive_osc_data.py
 node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8>
+
+Result: 
+```
+python  .\receive_osc_data.py
+Your Computer Name is:DESKTOP1234
+Your Computer IP Address is:192.168.0.8
+/audio/path: (42, 0.5529999732971191, 'hello')
+```
 
 ## Run the ligth show
 WIP
