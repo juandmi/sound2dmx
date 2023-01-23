@@ -9,10 +9,8 @@ print("Your Computer IP Address is:"+IPAddr)
 def print_handler(address, *args):
     print(f"{address}: {args}")
 
-
 def default_handler(address, *args):
     print(f"DEFAULT {address}: {args}")
-
 
 dispatcher = Dispatcher()
 dispatcher.map("/audio*", print_handler)

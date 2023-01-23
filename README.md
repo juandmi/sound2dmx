@@ -40,6 +40,14 @@ https://ftdichip.com/wp-content/uploads/2020/08/D2XX_Programmers_GuideFT_000071.
 ## Test the interface by sending DMX data
 python .\check-dmx-interface-ftd2xx.py
 
+## Test OSC sending and receiving
+npm install socket.io
+npm install osc-js
+
+Run the the receiving and sending scripts in separate consoles: 
+python .\receive_osc_data.py
+node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8>
+
 ## Run the ligth show
 WIP
 
@@ -70,6 +78,10 @@ https://pypi.org/project/python-osc/
 
 #### Open Sound Control library for JavaScript applications
 https://www.npmjs.com/package/osc-js
+https://github.com/adzialocha/osc-js
+
+#### A no frills Open Sound Control client and server
+https://github.com/MylesBorins/node-osc
 
 #### DMX controller library for node.js
 https://github.com/node-dmx
