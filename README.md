@@ -63,7 +63,7 @@ Your Computer IP Address is:192.168.0.8
 ## Run the ligth show
 WIP
 
-First basic steps to control a light changes show from Andorid OSC Controller App.
+First basic steps to control a light changes from Andorid OSC Controller App.
 Andorid device and the Windows PC must be in the same network. 
 
 ```
