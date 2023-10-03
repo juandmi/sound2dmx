@@ -48,8 +48,8 @@ npm install osc-js
 
 Run the the receiving and sending scripts in separate consoles: <br>
 ```
-python .\receive_osc_data.py<br>
-node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8><br>
+python .\receive_osc_data.py 
+node   .\send_osc_data.js     <target ip address: e.g. 192.168.0.8> 
 ```
 
 Result: 
@@ -63,6 +63,21 @@ Your Computer IP Address is:192.168.0.8
 ## Run the ligth show
 WIP
 
+First basic steps to control a light changes show from Andorid OSC Controller App.
+Andorid device and the Windows PC must be in the same network. 
+
+```
+python  .\receive_osc_send_dmx.py
+Your Computer Name is:DESKTOP1234
+Your Computer IP Address is:192.168.0.8
+```
+
+Configure the App:
+IP Adress: as provided by the python script
+Port: 8080
+OSC Patch: /dmx
+
+
 ## Configure parameters
 WIP
 
@@ -71,16 +86,18 @@ WIP
 https://kb.iu.edu/d/afdl
 
 #### DMX explained
-https://community.element14.com/technologies/open-source-hardware/b/blog/posts/dmx-explained-dmx512-and-rs-485-protocol-detail-for-lighting-applications
+https://community.element14.com/technologies/open-source-hardware/b/blog/posts/dmx-explained-dmx512-and-rs-485-protocol-detail-for-lighting-applications <br>
+https://www.erwinrol.com/page/articles/dmx512/ <br>
+https://www.thedmxwiki.com/dmx_basics/dmx_timing 
 
 #### KMTronic programming example
 https://info.kmtronic.com/control-dmx512-devices-via-raspberry-pi.html
 
 #### Python wrappers around the D2XX DLL from FTDI
-https://pypi.org/project/ftd2xx/
-https://github.com/snmishra/ftd2xx 
-https://pypi.org/project/PyDMX/
-https://pypi.org/project/PyDMX-Drivers-FTDI/ 
+https://pypi.org/project/ftd2xx/ <br>
+https://github.com/snmishra/ftd2xx  <br>
+https://pypi.org/project/PyDMX/ <br>
+https://pypi.org/project/PyDMX-Drivers-FTDI/  <br>
 
 #### Audio motion analyzer
 https://github.com/hvianna/audioMotion-analyzer
@@ -89,7 +106,7 @@ https://github.com/hvianna/audioMotion-analyzer
 https://pypi.org/project/python-osc/
 
 #### Open Sound Control library for JavaScript applications
-https://www.npmjs.com/package/osc-js
+https://www.npmjs.com/package/osc-js <br>
 https://github.com/adzialocha/osc-js
 
 #### A no frills Open Sound Control client and server
@@ -98,3 +115,5 @@ https://github.com/MylesBorins/node-osc
 #### DMX controller library for node.js
 https://github.com/node-dmx
 
+#### OSC controler for Android
+https://play.google.com/store/apps/details?id=com.ffsmultimedia.osccontroller&hl=de

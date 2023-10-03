@@ -1,3 +1,5 @@
+# Python script to check the DMX interface using the FTD2XX library
+
 import time
 import sys, ftd2xx as ftd2xx
 
@@ -38,6 +40,9 @@ print("time after breaks off=", (seconds - start)*1000)
 
 i = 0
 # Now continously send the slot 1 to 512 DMX data 
+# with a 1 second delay between each send and print the time after each send
+# and the number of bytes written and the dmx data and the time after the dmx data sent
+
 t_end = time.time() + 1
 while time.time() < t_end:
     # Write the start bit
