@@ -16,7 +16,7 @@ print("Your Computer IP Address is:"+IPAddr)
 
 # Declare global variables
 global dmx_data_int
-dmx_data_int = [0,255,255,255,0,0] # DMX format: 0, red, green, blue, tilt, flash
+dmx_data_int = [0,255,255,255,0] # DMX format: flash, red, green, blue, tilt
 stopbit = 0x00
 stopbit = bytes(stopbit)
 bytes_written = ctypes.c_ulong()
@@ -63,7 +63,7 @@ def print_handler(address, *args):
         if match: 
             value = int(match.group())
             with lock:
-                dmx_data_int[5] = value 
+                dmx_data_int[0] = value 
         else:
             print(f"Invalid OSC message: {address} {args}")
     else:
