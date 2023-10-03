@@ -13,7 +13,8 @@ console.log(IPAddr);
 const socket = dgram.createSocket('udp4')
 
 // send a messsage via udp
-const message = new OSC.Message('/audio/path', 42, 0.553, 'hello')
+// const message = new OSC.Message('/dmx/undefined', 42, 0.553, 'hello')
+const message = new OSC.Message('/dmx/red', '(250.553,)') // format as send by osc controler app
 const binary = message.pack()
 
 // send the message to the the IPAddr on port 8080

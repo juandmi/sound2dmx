@@ -4,6 +4,7 @@ import socket
 import threading
 import re
 import time
+import win32api, win32process, win32con
 
 lock = threading.Lock() # create a lock to prevent concurrent access to dmx_data
 stop_event = threading.Event() # Create an event to signal threads to stop
@@ -16,12 +17,28 @@ print("Your Computer IP Address is:"+IPAddr)
 
 # Declare global variables
 global dmx_data_int
-dmx_data_int = [0,255,255,255,0] # DMX format: flash, red, green, blue, tilt
+dmx_data_int = [0,10,10,10,0] # DMX format: flash, red, green, blue, tilt
 stopbit = 0x00
 stopbit = bytes(stopbit)
 bytes_written = ctypes.c_ulong()
 ip = IPAddr
 port = 8080
+
+# Set the priority of the process to high
+def set_priority(pid=None, priority_class=win32process.HIGH_PRIORITY_CLASS):
+    if pid is None:
+        pid = win32api.GetCurrentProcessId()
+    handle = win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, True, pid)
+    win32process.SetPriorityClass(handle, priority_class)
+
+set_priority()
+
+# precise_sleep function to sleep for a precise duration
+def precise_sleep(target_duration):
+    start_time = time.monotonic()
+    end_time = start_time + target_duration
+    while time.monotonic() < end_time:
+        pass
 
 # print_handler function for OSC data received
 def print_handler(address, *args):
@@ -112,20 +129,20 @@ def write_dmx_data():
     # Set the break conditions
     status = ftd2xx.FT_SetBreakOn(ft_handle)
     print_status("FT_SetBreakOn",status)
-    time.sleep(0.010) # delay 10ms
+    precise_sleep(0.010) # delay 10ms
     status = ftd2xx.FT_SetBreakOff(ft_handle)
     print_status("FT_SetBreakOff",status)
     # Set the mark-after-break
-    time.sleep(0.000008)  # delay 8usec
+    precise_sleep(0.000008)  # delay 8usec
 
     try: 
         while not stop_event.is_set():
             # when dmx_data changes, send the data
             if dmx_data != bytes(dmx_data_int):
                 ftd2xx.FT_SetBreakOn(ft_handle) # Set the break conditions
-                time.sleep(0.010) # delay 10ms
+                precise_sleep(0.010) # delay 10ms
                 ftd2xx.FT_SetBreakOff(ft_handle) # Set the mark after break conditions
-                time.sleep(0.000008)  # Set the mark-after-break
+                precise_sleep(0.000008)  # delay 8usec
                 with lock:
                     dmx_data = bytes(dmx_data_int) # convert the dmx_data list to bytes
                     print(f"DMX data: {dmx_data_int}")
