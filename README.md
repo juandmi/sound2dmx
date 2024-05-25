@@ -1,5 +1,11 @@
 # sound2dmx Project
-A Project to generate a compelling light show from a music live-stream
+A project to generate a compelling light show from a music live-stream. 
+Completed: 
+  - Python script that receives OSC values
+  - The script can change the lights on the LED light via the USB interface
+
+Todo:
+  - Analyze music and create OSC signals depending on music beat, harmonics, type, etc.
 
 # Hardware
 ## KMtronic DMX adapter
