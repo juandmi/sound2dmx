@@ -1,5 +1,6 @@
 # sound2dmx Project
 A project to generate a compelling light show from a music live-stream. 
+
 Completed: 
   - Python script that receives OSC values
   - The script can change the lights on the LED light via the USB interface
